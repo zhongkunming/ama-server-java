@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ama.server.mapper.SysSequenceMapper">
+    <select id="queryBySequenceName" resultType="cn.ama.server.entity.SysSequence">
+        select *
+        from sys_sequence
+        where sequence_name = #{sequenceName}
+    </select>
+
+    <update id="updateBySequenceName">
+        update sys_sequence
+        set current_val = current_val + 1
+        where sequence_name = #{sequenceName}
+    </update>
+</mapper>
